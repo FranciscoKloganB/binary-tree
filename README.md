@@ -34,5 +34,10 @@ Depth is the length of the path to its root, from the current node
 
 ### Binary Trees
 
-A binary tree is a tree data structure in which each node has at the most
-two children, which are referred to as the left child and the right child
+Binary Trees are a data structure in which each node has at the most
+two children, which are referred to as the left child and the right child.
+
+### Binary Search Tree
+
+Binary Search Trees are sometimes called ordered or sorted binary trees, and
+it keeps its values in sorted order
