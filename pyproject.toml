@@ -1,5 +1,18 @@
 [tool.poetry-exec-plugin.commands]
 format="isort .; black . --target-version py310"
+test_unit = "python -m pytest tests/unit -n auto --cov=\".\""
+
+[tool.coverage.run]
+omit = ["tests/*"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 0
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
 
 [tool.poetry]
 name = "binary-trees"
@@ -15,9 +28,21 @@ requests = "^2.27.1"
 # Formatting
 black = "^21.12b0"
 isort = "^5.10.1"
+# Testing
+coverage = { version = "^6.3", extras = ["toml"] }
+pytest = "^6.2.5"
+pytest-asyncio = "^0.18.1"
+pytest-cov = "^3.0.0"
+pytest-mock = "^3.7.0"
+pytest-picked = "^0.4.6"
+pytest-sugar = "^0.9.4"
+pytest-xdist = "^2.5.0"
 # Tooling
 poetry-exec-plugin = "^0.3.2"
 click = "^8.0.4"
+setuptools = "^60.9.3"
+# Miscellaneous
+CacheControl = "^0.12.10"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
