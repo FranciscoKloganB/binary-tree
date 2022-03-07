@@ -1,42 +1,6 @@
-from __future__ import annotations
+from typing import Callable
 
-from collections import deque
-from dataclasses import dataclass
-from typing import Any, Callable
-
-
-@dataclass
-class BinaryTreeNode:
-    parent: BinaryTreeNode | None
-    left: BinaryTreeNode | None
-    right: BinaryTreeNode | None
-    value: Any
-
-    @property
-    def has_left(self):
-        return self.left is not None
-
-    @property
-    def has_right(self):
-        return self.right is not None
-
-    @property
-    def has_parent(self):
-        return self.parent is not None
-
-    @property
-    def is_leaf(self):
-        return not (self.has_left or self.has_right)
-
-
-class BinaryTreeCallableProgram:
-    def __init__(self, **kwargs):
-        self.__dict__.update(kwargs)
-
-    def __call__(node: BinaryTreeNode):
-        raise NotImplementedError(
-            "Classes inheriting from BinaryTreeCallableProgram must implement __call__(node: BinaryTreeNode) method"
-        )
+from domain.binary_tree_node import BinaryTreeNode
 
 
 def traverse_depth_first_search_pre_order(node: BinaryTreeNode, fn: Callable):
@@ -87,24 +51,3 @@ def traverse_depth_first_search_post(node: BinaryTreeNode, fn: Callable):
         traverse_depth_first_search_in_order(node.right)
 
     fn(node.value)
-
-
-def traverse_breath_first_search(node: BinaryTreeNode, fn: Callable):
-    """Performs a BFS traversal over a binary tree
-
-    Values of the tree are computed as they are visited. All tree nodes on a given
-    depth level are computed before any children below that depth level is computed.
-    """
-    queue = deque()
-    queue.append(node)
-
-    while queue.count > 0:
-        current_node = queue.popleft()
-
-        fn(current_node.value)
-
-        if current_node.has_left:
-            queue.append(current_node.left)
-
-        if current_node.has_right:
-            queue.append(current_node.right)
