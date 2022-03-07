@@ -1,0 +1,24 @@
+[tool.poetry-exec-plugin.commands]
+format="isort .; black . --target-version py310"
+
+[tool.poetry]
+name = "binary-trees"
+version = "0.1.0"
+description = "resolving challenges for sky-network"
+authors = ["Los Catalhunhas <_@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.10"
+requests = "^2.27.1"
+
+[tool.poetry.dev-dependencies]
+# Formatting
+black = "^21.12b0"
+isort = "^5.10.1"
+# Tooling
+poetry-exec-plugin = "^0.3.2"
+click = "^8.0.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
