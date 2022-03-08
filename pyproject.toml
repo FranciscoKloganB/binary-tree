@@ -1,6 +1,7 @@
 [tool.poetry-exec-plugin.commands]
 format="isort .; black . --target-version py310"
-test_unit = "python -m pytest tests/unit --cov=\".\""
+test_unit = "python -m pytest tests/unit -p no:sugar"
+test_unit_cov = "python -m pytest tests/unit --cov=\".\""
 test_unit_parallel = "python -m pytest tests/unit -n auto --cov=\".\""
 
 [tool.coverage.run]

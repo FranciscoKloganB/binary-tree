@@ -13,7 +13,7 @@ def traverse_breath_first_search(node: BinaryTreeNode, fn: Callable):
     queue = deque()
     queue.append(node)
 
-    while queue.count > 0:
+    while len(queue) > 0:
         current_node = queue.popleft()
 
         fn(current_node)
