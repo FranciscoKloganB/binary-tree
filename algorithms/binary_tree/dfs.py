@@ -37,7 +37,7 @@ def traverse_depth_first_search_in_order(node: BinaryTreeNode, fn: Callable):
         traverse_depth_first_search_in_order(node.right)
 
 
-def traverse_depth_first_search_post(node: BinaryTreeNode, fn: Callable):
+def traverse_depth_first_search_post_order(node: BinaryTreeNode, fn: Callable):
     """Performs a DFS traversal in post-order approach over a binary tree
 
     Values are computed bottom to top, giving priority to left nodes, then
