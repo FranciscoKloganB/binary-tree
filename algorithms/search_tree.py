@@ -3,9 +3,7 @@ from typing import Any
 from domain.binary_tree_node import BinaryTreeNode
 
 
-def insert(root_node: BinaryTreeNode, new_node: BinaryTreeNode):
-    current_node = root_node
-
+def insert(current_node: BinaryTreeNode, new_node: BinaryTreeNode):
     if new_node.value <= current_node.value and current_node.has_left:
         insert(current_node.left, new_node)
     elif new_node.value <= current_node.value:
@@ -16,11 +14,15 @@ def insert(root_node: BinaryTreeNode, new_node: BinaryTreeNode):
         current_node.right = new_node
 
 
-def find(root_node: BinaryTreeNode, value: Any):
+def find(current_node: BinaryTreeNode, value: Any):
+    if value < current_node.value and current_node.has_left:
+        return find(current_node.left, value)
 
-    if value < root_node.value and root_node.has_left:
-        find(root_node.left, value)
-    if value > root_node.value and root_node.has_right:
-        find(root_node.right, value)
+    if value > current_node.value and current_node.has_right:
+        return find(current_node.right, value)
 
-    return value == root_node.value
+    return current_node if value == current_node.value else None
+
+
+def delete(current_node: BinaryTreeNode, value: Any, once: bool = True):
+    pass

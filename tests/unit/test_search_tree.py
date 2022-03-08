@@ -4,6 +4,7 @@ from algorithms.dfs import traverse_depth_first_search_pre_order
 from algorithms.search_tree import find, insert
 from domain.binary_tree_node import BinaryTreeNode
 
+
 @pytest.fixture()
 def with_binary_search_tree():
     root_value = 50
@@ -17,6 +18,7 @@ def with_binary_search_tree():
 
     return root_node
 
+
 def test_insert_placement_order_is_correct(with_binary_search_tree, with_tracker):
     expected = [50, 21, 4, 32, 76, 64, 52, 100]
 
@@ -26,19 +28,28 @@ def test_insert_placement_order_is_correct(with_binary_search_tree, with_tracker
 
 
 @pytest.mark.parametrize(
-    "target, expected",
+    "target",
     [
-        (-1, False),
-        (0, False),
-        (1, False),
-        (2, False),
-        (3, False),
-        (4, True),
-        (21, True),
-        (52, True),
-        (100, True),
-        (1000, False),
+        (-1),
+        (0),
+        (1),
+        (2),
+        (3),
+        (1000),
     ],
 )
-def test_find_is_correct(with_binary_search_tree, target, expected):
-    assert find(with_binary_search_tree, target) == expected
+def test_find_returns_none_when_target_does_not_exist(with_binary_search_tree, target):
+    assert find(with_binary_search_tree, target) is None
+
+
+@pytest.mark.parametrize(
+    "target",
+    [
+        (4),
+        (21),
+        (52),
+        (100),
+    ],
+)
+def test_find_returns_target_when_it_exists(with_binary_search_tree, target):
+    assert find(with_binary_search_tree, target) is not None
