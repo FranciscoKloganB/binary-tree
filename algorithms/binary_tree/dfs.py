@@ -47,7 +47,7 @@ def traverse_depth_first_search_post_order(node: BinaryTreeNode, fn: Callable):
     if node.has_left:
         traverse_depth_first_search_in_order(node.left, fn)
 
-    if node.has_left:
+    if node.has_right:
         traverse_depth_first_search_in_order(node.right, fn)
 
     fn(node)
