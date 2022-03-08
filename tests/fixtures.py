@@ -2,8 +2,9 @@ import pytest
 
 from domain.binary_tree_node import BinaryTreeCallableProgram, BinaryTreeNode
 
+
 @pytest.fixture()
-def with_computed_order_tracker():
+def with_tracker():
     class ComputatedOrder(BinaryTreeCallableProgram):
         def __init__(self):
             self.order = []
@@ -15,20 +16,21 @@ def with_computed_order_tracker():
 
 
 @pytest.fixture()
-def with_one_through_seven_tree():
-    one = BinaryTreeNode(1)
-    two = BinaryTreeNode(2)
-    three = BinaryTreeNode(3)
-    four = BinaryTreeNode(4)
-    five = BinaryTreeNode(5)
-    six = BinaryTreeNode(6)
-    seven = BinaryTreeNode(7)
-
+def with_one_to_seven_tree():
+    one = BinaryTreeNode(parent=None, left=None, right=None, value=1)
+    two = BinaryTreeNode(parent=one, left=None, right=None, value=2)
+    five = BinaryTreeNode(parent=one, left=None, right=None, value=5)
     one.left = two
     one.right = five
+
+    three = BinaryTreeNode(parent=two, left=None, right=None, value=3)
+    four = BinaryTreeNode(parent=two, left=None, right=None, value=4)
     two.left = three
     two.right = four
+
+    six = BinaryTreeNode(parent=five, left=None, right=None, value=6)
+    seven = BinaryTreeNode(parent=five, left=None, right=None, value=7)
     five.left = six
     five.right = seven
-    
+
     return one
