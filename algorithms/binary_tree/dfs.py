@@ -15,10 +15,10 @@ def traverse_depth_first_search_pre_order(node: BinaryTreeNode, fn: Callable):
     fn(node)
 
     if node.has_left:
-        traverse_depth_first_search_pre_order(node.left)
+        traverse_depth_first_search_pre_order(node.left, fn)
 
     if node.has_right:
-        traverse_depth_first_search_pre_order(node.right)
+        traverse_depth_first_search_pre_order(node.right, fn)
 
 
 def traverse_depth_first_search_in_order(node: BinaryTreeNode, fn: Callable):
@@ -28,13 +28,13 @@ def traverse_depth_first_search_in_order(node: BinaryTreeNode, fn: Callable):
     then immidiate parents of leaf left nodes and then, right nodes. I.e., node
     values are computed whenever all their left children have been computed.
     """
-    if node.has_left():
-        traverse_depth_first_search_in_order(node.left)
+    if node.has_left:
+        traverse_depth_first_search_in_order(node.left, fn)
 
     fn(node)
 
-    if node.has_left():
-        traverse_depth_first_search_in_order(node.right)
+    if node.has_left:
+        traverse_depth_first_search_in_order(node.right, fn)
 
 
 def traverse_depth_first_search_post_order(node: BinaryTreeNode, fn: Callable):
@@ -44,10 +44,10 @@ def traverse_depth_first_search_post_order(node: BinaryTreeNode, fn: Callable):
     right nodes and then, parents. I.e., node values are computed whenever
     all their children have already been computed.
     """
-    if node.has_left():
-        traverse_depth_first_search_in_order(node.left)
+    if node.has_left:
+        traverse_depth_first_search_in_order(node.left, fn)
 
-    if node.has_left():
-        traverse_depth_first_search_in_order(node.right)
+    if node.has_left:
+        traverse_depth_first_search_in_order(node.right, fn)
 
     fn(node)
