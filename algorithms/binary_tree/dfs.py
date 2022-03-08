@@ -12,7 +12,7 @@ def traverse_depth_first_search_pre_order(node: BinaryTreeNode, fn: Callable):
 
     Left paths are prioritized whenever available.
     """
-    fn(node.value)
+    fn(node)
 
     if node.has_left:
         traverse_depth_first_search_pre_order(node.left)
@@ -31,7 +31,7 @@ def traverse_depth_first_search_in_order(node: BinaryTreeNode, fn: Callable):
     if node.has_left():
         traverse_depth_first_search_in_order(node.left)
 
-    fn(node.value)
+    fn(node)
 
     if node.has_left():
         traverse_depth_first_search_in_order(node.right)
@@ -50,4 +50,4 @@ def traverse_depth_first_search_post_order(node: BinaryTreeNode, fn: Callable):
     if node.has_left():
         traverse_depth_first_search_in_order(node.right)
 
-    fn(node.value)
+    fn(node)
