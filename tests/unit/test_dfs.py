@@ -1,4 +1,4 @@
-from algorithms.binary_tree.dfs import (
+from algorithms.dfs import (
     traverse_depth_first_search_in_order,
     traverse_depth_first_search_post_order,
     traverse_depth_first_search_pre_order,

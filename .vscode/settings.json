@@ -1,0 +1,16 @@
+{
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.rulers": [88],
+  "editor.tabSize": 4,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/.venv/bin/black",
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+   },
+}

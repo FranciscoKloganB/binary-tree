@@ -1,6 +1,6 @@
 from asyncio.log import logger
 
-from algorithms.binary_tree.bfs import traverse_breath_first_search
+from algorithms.bfs import traverse_breath_first_search
 
 
 def test_traverse_breath_first_search(with_one_to_seven_tree, with_tracker):

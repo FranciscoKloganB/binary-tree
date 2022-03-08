@@ -1,5 +1,5 @@
-from algorithms import binary_search_tree
-from algorithms.binary_tree.dfs import traverse_depth_first_search_pre_order
+from algorithms.dfs import traverse_depth_first_search_pre_order
+from algorithms.search_tree import insert
 from domain.binary_tree_node import BinaryTreeNode
 
 
@@ -12,7 +12,7 @@ def test_insert(with_tracker):
 
     for v in inputs:
         new_node = BinaryTreeNode(value=v)
-        binary_search_tree.insert(root_node, new_node)
+        insert(root_node, new_node)
 
     traverse_depth_first_search_pre_order(root_node, with_tracker)
 
