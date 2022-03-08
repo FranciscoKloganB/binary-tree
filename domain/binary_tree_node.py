@@ -8,10 +8,11 @@ from typing import Any, Callable
 
 @dataclass
 class BinaryTreeNode:
-    parent: BinaryTreeNode | None
-    left: BinaryTreeNode | None
-    right: BinaryTreeNode | None
     value: Any
+
+    parent: BinaryTreeNode | None = None
+    left: BinaryTreeNode | None = None
+    right: BinaryTreeNode | None = None
 
     @property
     def has_left(self):

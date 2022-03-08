@@ -17,19 +17,19 @@ def with_tracker():
 
 @pytest.fixture()
 def with_one_to_seven_tree():
-    one = BinaryTreeNode(parent=None, left=None, right=None, value=1)
-    two = BinaryTreeNode(parent=one, left=None, right=None, value=2)
-    five = BinaryTreeNode(parent=one, left=None, right=None, value=5)
+    one = BinaryTreeNode(value=1, parent=None)
+    two = BinaryTreeNode(value=2, parent=one)
+    five = BinaryTreeNode(value=5, parent=one)
     one.left = two
     one.right = five
 
-    three = BinaryTreeNode(parent=two, left=None, right=None, value=3)
-    four = BinaryTreeNode(parent=two, left=None, right=None, value=4)
+    three = BinaryTreeNode(value=3, parent=two)
+    four = BinaryTreeNode(value=4, parent=two)
     two.left = three
     two.right = four
 
-    six = BinaryTreeNode(parent=five, left=None, right=None, value=6)
-    seven = BinaryTreeNode(parent=five, left=None, right=None, value=7)
+    six = BinaryTreeNode(value=6, parent=five)
+    seven = BinaryTreeNode(value=7, parent=five)
     five.left = six
     five.right = seven
 
