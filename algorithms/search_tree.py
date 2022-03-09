@@ -57,4 +57,4 @@ def handle_leaf_deletion(target: BinaryTreeNode, parent: BinaryTreeNode | None) 
 
 
 def handle_single_child_deletion(target: BinaryTreeNode, parent: BinaryTreeNode) -> int:
-
+    pass
