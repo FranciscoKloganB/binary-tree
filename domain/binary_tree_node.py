@@ -29,9 +29,11 @@ class BinaryTreeNode:
     def is_leaf(self):
         return not (self.has_left or self.has_right)
 
-
     def has_single_child(self):
-        return (self.has_left and not self.has_right) or (self.has_right and not self.has_left)
+        return (self.has_left and not self.has_right) or (
+            self.has_right and not self.has_left
+        )
+
 
 class BinaryTreeCallableProgram(ABC):
     """Abstract class that enforces children to implement the __call__ method."""
