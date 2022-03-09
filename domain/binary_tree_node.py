@@ -2,16 +2,22 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from operator import le
 from typing import Any
 
 
-@dataclass
 class BinaryTreeNode:
-    value: Any
-
-    parent: BinaryTreeNode | None = None
-    left: BinaryTreeNode | None = None
-    right: BinaryTreeNode | None = None
+    def __init__(
+        self,
+        value: Any,
+        parent: BinaryTreeNode = None,
+        left: BinaryTreeNode = None,
+        right: BinaryTreeNode = None,
+    ) -> None:
+        self.value = value
+        self.parent = parent
+        self.left = left
+        self.right = right
 
     @property
     def has_left(self):
