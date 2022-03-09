@@ -22,6 +22,21 @@ def height(current_node: BinaryTreeNode) -> int:
     return 1 + right_height
 
 
+def balance_factor(left_height: int, right_height: int) -> int:
+    """Returns the raw balance factor.
+
+    Hint 1: if the returned absolute value is gt(1) AVL constraints are broken.
+    Hint 2:
+        when the raw returned value is gt(1) there is a Left-Left or Left-Right imbalance
+        when it is lt(-1) there is a Right-Right or Right-Left imbalance.
+
+
+    The result of this method can be used to infer the presence
+    of
+    """
+    return left_height - right_height
+
+
 def is_balanced_tree(
     root_node: BinaryTreeNode,
 ) -> Tuple[bool, BinaryTreeNode | None]:
@@ -38,9 +53,10 @@ def is_balanced_tree(
         # If this is the child of a leaf (there is nothing to check)
         return True, None
 
-    height_diff = height(root_node.left) - height(root_node.right)
-
-    if abs(height_diff) > 1:
+    left_height = height(root_node.left)
+    right_height = height(root_node.right)
+    
+    if abs(balance_factor(left_height, right_height)) > 1:
         # If any subtree pair breaks the constraint, the tree is not balanced
         return False, root_node
 

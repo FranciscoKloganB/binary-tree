@@ -1,4 +1,5 @@
 from cmath import exp
+
 import pytest
 
 from algorithms.queries import height, is_balanced_tree
@@ -11,7 +12,9 @@ def test_height_calculates_size_correctly(root_node, expected):
     assert height(root_node) == expected
 
 
-@pytest.mark.parametrize("root_node, expected_bool, expected_type", BALANCE_EXAMPLES_TABLE)
+@pytest.mark.parametrize(
+    "root_node, expected_bool, expected_type", BALANCE_EXAMPLES_TABLE
+)
 def test_is_balanced_tree(root_node, expected_bool, expected_type):
     result_bool, result_node = is_balanced_tree(root_node)
 
