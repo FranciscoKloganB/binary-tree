@@ -1,3 +1,13 @@
+"""
+Pre-order traverse gives the node values in a sequence of insertion. If you want to
+create a copy of the tree you need to traverse the source tree in this way.
+
+In-order traverse gives the sorted node values, assuming we have a valid AVL. This is
+valid because in-order method traverses the tree in non-decreasing order.
+
+As to post-order traverse you can use this method to delete entire tree cause it visit
+leaf nodes first.
+"""
 from typing import Callable
 
 from domain.binary_tree_node import BinaryTreeNode
