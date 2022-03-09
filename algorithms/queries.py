@@ -55,7 +55,7 @@ def is_balanced_tree(
 
     left_height = height(root_node.left)
     right_height = height(root_node.right)
-    
+
     if abs(balance_factor(left_height, right_height)) > 1:
         # If any subtree pair breaks the constraint, the tree is not balanced
         return False, root_node

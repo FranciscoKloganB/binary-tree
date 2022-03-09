@@ -31,14 +31,13 @@ class BinaryTreeNode:
     def has_parent(self):
         return self.parent is not None
 
-    @property
-    def is_leaf(self):
-        return not (self.has_left or self.has_right)
-
     def has_single_child(self):
         return (self.has_left and not self.has_right) or (
             self.has_right and not self.has_left
         )
+
+    def is_leaf(self):
+        return not (self.has_left or self.has_right)
 
 
 class BinaryTreeCallableProgram(ABC):
